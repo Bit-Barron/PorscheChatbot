@@ -71,7 +71,6 @@ class FastWhisperTranscriber:
         os.remove(file_path)
         return full_transcript
     
-
     def run(self):
         while True:
             recording = self.record_audio()
