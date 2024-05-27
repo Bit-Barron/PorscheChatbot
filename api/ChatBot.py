@@ -18,6 +18,6 @@ def get_solution():
             ],
         )
 
-        print(response.choices[0].message.content)
+        return response.choices[0].message.content
 
 get_solution()

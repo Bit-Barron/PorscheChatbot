@@ -46,7 +46,6 @@ def question_and_links(url):
         text = link.text.strip()
         href = link['href']
         if text and "Mehr erfahren" in text:
-            print(text)
             questions.append((text.replace("Mehr erfahren", "").strip(), href))
     
     return questions

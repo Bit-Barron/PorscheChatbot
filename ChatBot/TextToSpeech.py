@@ -6,8 +6,6 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 def create_voice(solution):
     response = openai.audio.speech.create(model="tts-1", voice="echo", input=solution)
 
-    print("RESPONSE FOR CREATE VOICE:", response)
-
     with open("solution.mp3", "wb") as file:
         file.write(response.read())
 
