@@ -6,24 +6,23 @@ from flask import Flask, request, jsonify
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 app = Flask(__name__)
-CORS(app, resources={r"/ask/*": {"origins": "*"}})
+CORS(app, origins="*")  
 
 @app.route("/ask/", methods=['POST'])
 def get_solution():
-    data = request.json
-    question = data.get('question')
-    if not question:
-        return jsonify({"error": "Missing 'question' parameter"}), 400
+    while True:
+        data = request.json
+        question = data.get('question')
+        response = openai.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a Porsche expert and answer questions about Porsche."},
+                {"role": "user", "content": question},
+            ],
+        )
 
-    response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a Porsche expert and answer questions about Porsche."},
-            {"role": "user", "content": question},
-        ],
-    )
+        return jsonify({"solution": response.choices[0].message.content})
 
-    return jsonify({"response": response})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
