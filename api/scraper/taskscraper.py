@@ -6,20 +6,10 @@ from utils.helper import remove_umlaut
 app = Flask(__name__)
 taskscraper_bp = Blueprint('taskscraper', __name__)
 
-user_input = input("What do you want to scrape?: 1: Connect, 2: E-Mobility, 3: My Porsche")
+base_url = f"https://ask.porsche.com/de/de-DE/connect/"
 
-url_paths = {
-    "1": "connect",
-    "2": "e-mobility",
-    "3": "my-porsche"
-}
 
-if user_input in url_paths:
-    base_url = f"https://ask.porsche.com/de/de-DE/{url_paths[user_input]}/"
-    print(f"The URL to scrape is: {base_url}")
-else:
-    print("Invalid input")
-
+taskscraper_bp.route("/scrape_data", methods=["GET"])
 def question_and_links(url):
     resp = requests.get(url)
     resp.encoding = resp.apparent_encoding  
@@ -34,6 +24,7 @@ def question_and_links(url):
     
     return questions
 
+taskscraper_bp.route("/get_full_answer", methods=["GET"])
 def get_full_answer(url):
     resp = requests.get(url)
     resp.encoding = resp.apparent_encoding  
@@ -43,6 +34,7 @@ def get_full_answer(url):
         return article.get_text(separator=' ', strip=True)
     return "Keine Antwort gefunden"
 
+taskscraper_bp.route("/scrape_data", methods=["GET"])
 def scrapeData(url):
     questions_and_links = question_and_links(url)
     QUESTION_URL = "https://ask.porsche.com"

@@ -1,6 +1,6 @@
 from flask import Flask
 from chatbot.texttospeech import textToSpeech_bp
-from api.chatbot import chatbot_bp
+from chatbot.chatbot_service import chatbot_bp
 from scraper.taskscraper import taskscraper_bp
 
 app = Flask(__name__)
