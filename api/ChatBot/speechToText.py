@@ -4,7 +4,7 @@ import time
 from pynput import keyboard
 import tempfile
 import os
-from api.chatbot.texttospeech import get_solutions
+from texttospeech import get_solutions
 from scipy.io.wavfile import write
 from faster_whisper import WhisperModel
 

@@ -8,12 +8,11 @@ taskscraper_bp = Blueprint('taskscraper', __name__)
 
 base_url = f"https://ask.porsche.com/de/de-DE/connect/"
 
-
 taskscraper_bp.route("/", methods=["GET"])
 def index():
     return "Welcome to the Task Scraper API"
 
-taskscraper_bp.route("/scrape_data", methods=["GET"])
+taskscraper_bp.route("/scrape", methods=["GET"])
 def question_and_links(url):
     resp = requests.get(url)
     resp.encoding = resp.apparent_encoding  
@@ -28,7 +27,7 @@ def question_and_links(url):
     
     return questions
 
-taskscraper_bp.route("/get_full_answer", methods=["GET"])
+taskscraper_bp.route("/answear", methods=["GET"])
 def get_full_answer(url):
     resp = requests.get(url)
     resp.encoding = resp.apparent_encoding  
