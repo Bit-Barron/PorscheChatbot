@@ -1,5 +1,0 @@
-{
-    "chroma_api_impl": "chromadb.api.fastapi.FastAPI",
-    "chroma_api_url": "http://localhost:8000"
-  }
-  

@@ -1,14 +1,20 @@
 import openai
 import os
 from flask_cors import CORS
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Blueprint
 
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 app = Flask(__name__)
 CORS(app, origins="*")  
 
-@app.route("/ask/", methods=['POST'])
+chatbot_bp = Blueprint('chatbot', __name__)
+
+@chatbot_bp.route("/", methods=['GET'])
+def home():
+    return "Chatbot API is running."
+
+@chatbot_bp.route("/ask/", methods=['POST'])
 def get_solution():
     while True:
         data = request.json

@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from TextToSpeech import get_solutions
+from textToSpeech import get_solutions
 from scipy.io.wavfile import write
 from faster_whisper import WhisperModel
 import sounddevice as sd
