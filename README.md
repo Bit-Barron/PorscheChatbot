@@ -21,16 +21,16 @@
 
 <ol>
     <li>Clone the repository:</li>
-    <pre><code>git clone https://github.com/yourusername/porsche-chatbot-api.git</code></pre>
+    <pre><code>git clone (https://github.com/Bit-Barron/PorscheChatbot.git)</code></pre>
     <li>Navigate to the project directory:</li>
-    <pre><code>cd porsche-chatbot-api</code></pre>
+    <pre><code>cd PorscheChatbot</code></pre>
     <li>Install dependencies:</li>
     <pre><code>pip install -r requirements.txt</code></pre>
 </ol>
 
 <h3>Configuration</h3>
 
-<p>Set up environment variables by creating a <code>.env</code> file in the project root directory and populating it with your configuration:</p>
+<p>Set up environment variables by creating environment variables<code></code></p>
 
 <pre><code>
     Add your OpenAI key as environment var should be named as: OPENAI_API_KEY
