@@ -47,9 +47,9 @@
 <h3>API Endpoints</h3>
 
 <ul>
-    <li><code>/api/v1/chat</code>: Endpoint for interacting with the chatbot.</li>
-    <li><code>/api/v1/speechtotext</code>: Endpoint for converting speech to text.</li>
-    <li><code>/api/v1/texttospeech</code>: Endpoint for converting text to speech.</li>
+    <li><code>/api/get_solutions</code>: Endpoint for interacting with the chatbot and get Solutions.</li>
+    <li><code>/api/create_voice</code>: Endpoint for converting speech to text.</li>
+    <li><code>/api/scrape_data</code>: Endpoint for getting scraped data from: https://ask.porsche.com/.</li>
 </ul>
 
 <h3>Examples</h3>
@@ -58,39 +58,14 @@
 
 <pre><code>import requests
 
-url = "http://localhost:5000/api/v1/chat"
+url = "http://127.0.0.1/scrape_data/"
 data = {"input": "What is the top speed of the latest Porsche 911?"}
 
 response = requests.post(url, json=data)
 print(response.json())
 </code></pre>
 
-<h4>Example 2: Speech-to-Text Conversion</h4>
-
-<pre><code>import requests
-
-url = "http://localhost:5000/api/v1/speechtotext"
-audio_file = open("audio.wav", "rb")
-
-files = {"audio": audio_file}
-
-response = requests.post(url, files=files)
-print(response.json())
-</code></pre>
-
-<h4>Example 3: Text-to-Speech Conversion</h4>
-
-<pre><code>import requests
-
-url = "http://localhost:5000/api/v1/texttospeech"
-data = {"text": "The top speed of the latest Porsche 911 is 211 mph."}
-
-response = requests.post(url, json=data)
-audio_data = response.json()["audio"]
-
-# Save audio data to a file or play it directly
-</code></pre>
-
+<
 <h2>Contributing</h2>
 
 <p>Contributions are welcome! Feel free to open issues for feature requests, bug fixes, or general improvements. Pull requests are also appreciated.</p>
