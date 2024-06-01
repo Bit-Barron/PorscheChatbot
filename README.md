@@ -32,11 +32,8 @@
 
 <p>Set up environment variables by creating a <code>.env</code> file in the project root directory and populating it with your configuration:</p>
 
-<pre><code>SECRET_KEY=your_secret_key
-OPENAI_API_KEY=your_openai_api_key
-SPEECH_TO_TEXT_MODEL_PATH=path_to_speech_to_text_model
-TEXT_TO_SPEECH_MODEL_PATH=path_to_text_to_speech_model
-FLASK_ENV=development
+<pre><code>
+    Add your OpenAI key as environment var should be named as: OPENAI_API_KEY
 </code></pre>
 
 <h3>Usage</h3>
