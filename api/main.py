@@ -1,1 +1,3 @@
-import llm 
+from llm import LLMMODULE
+
+print(LLMMODULE())

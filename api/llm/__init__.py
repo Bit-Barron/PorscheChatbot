@@ -1,1 +1,1 @@
-print("daddy")
+from .model import LLMMODULE
