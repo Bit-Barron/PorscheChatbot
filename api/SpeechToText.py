@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify
-from textToSpeech import get_solutions
 from scipy.io.wavfile import write
 from faster_whisper import WhisperModel
 import sounddevice as sd
 import numpy as np
+from flask_cors import CORS
 import os
 import tempfile
 
 app = Flask(__name__)
-
+CORS(app, origins="*")
 class FastWhisperTranscriber:
     def __init__(self, model_size="large-v3", sample_rate=44100):
         self.model_size = model_size
