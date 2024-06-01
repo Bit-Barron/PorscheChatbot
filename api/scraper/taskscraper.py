@@ -43,7 +43,7 @@ def scrapeData(url):
     questions_and_links = question_and_links(url)
     QUESTION_URL = "https://ask.porsche.com"
     
-    with open("output.txt", "w", encoding="utf-8") as file:
+    with open("../scraped_data_results/output.txt", "w", encoding="utf-8") as file:
         for question, link in questions_and_links:
             full_url = QUESTION_URL + link
             answer = get_full_answer(full_url)
