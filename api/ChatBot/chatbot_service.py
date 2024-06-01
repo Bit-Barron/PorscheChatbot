@@ -14,7 +14,7 @@ chatbot_bp = Blueprint('chatbot', __name__)
 def home():
     return "Chatbot API is running."
 
-@chatbot_bp.route("/ask/", methods=['POST'])
+@chatbot_bp.route("/get_solutions/", methods=['POST'])
 def get_solution():
     while True:
         data = request.json
