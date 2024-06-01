@@ -17,7 +17,7 @@ def create_voice(solution):
     with open("solution.mp3", "wb") as file:
         file.write(response.read())
 
-@textToSpeech_bp.route("/get_solutions", methods=["POST"])
+@textToSpeech_bp.route("/solutions", methods=["POST"])
 def get_solutions(question):
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
