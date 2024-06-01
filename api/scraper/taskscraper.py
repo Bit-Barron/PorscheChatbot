@@ -1,26 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+from flask import Flask
+from utils.helper import remove_umlaut
 
-def remove_umlaut(string):
-    u = 'ü'.encode()
-    U = 'Ü'.encode()
-    a = 'ä'.encode()
-    A = 'Ä'.encode()
-    o = 'ö'.encode()
-    O = 'Ö'.encode()
-    ss = 'ß'.encode()
-
-    string = string.encode()
-    string = string.replace(u, b'ue')
-    string = string.replace(U, b'Ue')
-    string = string.replace(a, b'ae')
-    string = string.replace(A, b'Ae')
-    string = string.replace(o, b'oe')
-    string = string.replace(O, b'Oe')
-    string = string.replace(ss, b'ss')
-
-    string = string.decode('utf-8')
-    return string
+app = Flask(__name__)
 
 user_input = input("What do you want to scrape?: 1: Connect, 2: E-Mobility, 3: My Porsche")
 
