@@ -1,0 +1,14 @@
+openai
+Flask
+flask-cors
+sounddevice
+numpy
+pynput
+scipy
+faster-whisper
+langchain
+langchain_community
+requests
+beautifulsoup4
+pandas  # optional, if used by your scraper
+torch  # for SentenceTransformerEmbeddings in langchain_community
