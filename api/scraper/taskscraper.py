@@ -9,6 +9,8 @@ taskscraper_bp = Blueprint('taskscraper', __name__)
 base_url = f"https://ask.porsche.com/de/de-DE/connect/"
 
 
+
+
 taskscraper_bp.route("/scrape_data", methods=["GET"])
 def question_and_links(url):
     resp = requests.get(url)
