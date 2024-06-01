@@ -14,7 +14,7 @@ textToSpeech_bp = Blueprint('textToSpeech', __name__)
 def create_voice(solution):
     response = openai.audio.speech.create(model="tts-1", voice="echo", input=solution)
 
-    with open("solution.mp3", "wb") as file:
+    with open("output/output.mp3", "wb") as file:
         file.write(response.read())
 
 @textToSpeech_bp.route("/solutions", methods=["POST"])
