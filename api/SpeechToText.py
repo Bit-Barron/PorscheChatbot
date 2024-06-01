@@ -16,7 +16,7 @@ class FastWhisperTranscriber:
         self.model = WhisperModel(model_size, device="cpu", compute_type="float32")
         self.is_recording = False 
 
-    def record_audio(self, duration=5):  # Ändere die Aufnahmedauer nach Bedarf
+    def record_audio(self, duration=5):  
         frames_per_buffer = int(self.sample_rate * 0.5) 
         recording = sd.rec(int(duration * self.sample_rate), samplerate=self.sample_rate, channels=2, dtype="float64")
         sd.wait()
