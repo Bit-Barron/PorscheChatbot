@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask
+from flask import Flask, Blueprint
 from utils.helper import remove_umlaut
 
 app = Flask(__name__)
+taskscraper_bp = Blueprint('taskscraper', __name__)
 
 user_input = input("What do you want to scrape?: 1: Connect, 2: E-Mobility, 3: My Porsche")
 

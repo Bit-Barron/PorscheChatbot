@@ -6,7 +6,6 @@ from flask import Flask, Blueprint
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 app = Flask(__name__)
-CORS(app, origins="*")
 
 textToSpeech_bp = Blueprint('textToSpeech', __name__)
 
