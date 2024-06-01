@@ -1,6 +1,6 @@
 from flask import Flask
-from textToSpeech import textToSpeech_bp
-from chatBot import chatbot_bp
+from ChatBot.textToSpeech import textToSpeech_bp
+from api.ChatBot.chatBot import chatbot_bp
 
 app = Flask(__name__)
 app.register_blueprint(textToSpeech_bp)
