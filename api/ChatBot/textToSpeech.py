@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 textToSpeech_bp = Blueprint('textToSpeech', __name__)
 
-@textToSpeech_bp.route("/create_voice/", methods=['POST'])
+
 def create_voice(solution):
     response = openai.audio.speech.create(model="tts-1", voice="echo", input=solution)
 
