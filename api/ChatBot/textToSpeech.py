@@ -21,7 +21,6 @@ def create_voice(solution):
 def get_solutions():
         data = request.json
         question = data.get('question')
-        print(question)
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
