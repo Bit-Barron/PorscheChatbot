@@ -18,14 +18,14 @@ def create_voice(solution):
         file.write(response.read())
 
 @textToSpeech_bp.route("/solutions", methods=["POST"])
-def get_solutions():
+def get_solutions(solution):
         data = request.json
         question = data.get('question')
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Du bist ein Porsche-Experte und beantwortest Fragen zu Porsche."},
-                {"role": "user", "content": question},
+                {"role": "system",  "content": "Du bist ein Porsche-Experte und beantwortest Fragen zu Porsche."},
+                {"role": "user", "content": question or solution},
             ],
         )
         content = response.choices[0].message.content
@@ -34,4 +34,4 @@ def get_solutions():
 
         return jsonify(content), 200
 
-
+ 
